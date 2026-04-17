@@ -175,6 +175,13 @@ class TrafficOrchestratorClient:
 
     # ── Internal ─────────────────────────────────────────────────────────
 
+    
+    def _require_api_key(self, method):
+        ""\"Raises if no API key is configured, with a developer-friendly signup URL.""\"
+        if not self.api_key:
+            raise Exception(
+                "TrafficOrchestrator Auth Error: Missing API Key. To generate your free API Key in 60 seconds, visit: https://trafficorchestrator.com/dashboard/keys"
+            )
     def _request(self, method: str, path: str, **kwargs: Any) -> Dict[str, Any]:
         url = f"{self.api_url}{path}"
         headers: Dict[str, str] = {"Content-Type": "application/json"}

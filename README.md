@@ -1,108 +1,80 @@
-# django-traffic-orchestrator
+# Traffic Orchestrator — Django / Python SDK
 
-Official Django integration for [Traffic Orchestrator](https://trafficorchestrator.com).
+[![Django](https://img.shields.io/badge/Django-4.2+-092E20?logo=django)](https://pypi.org/project/traffic-orchestrator-django/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-22c55e.svg)](LICENSE)
 
-ðŸ“– [API Reference](https://trafficorchestrator.com/docs#api) Â· [SDK Guides](https://trafficorchestrator.com/docs/sdk/django) Â· [OpenAPI Spec](https://api.trafficorchestrator.com/api/v1/openapi.json)
+**Enterprise-grade software licensing, edge validation, and API management.** Protect and monetize your applications with domain-bound license keys, offline verification, and real-time analytics — powered by 300+ edge locations worldwide.
 
-## Install
+---
+
+## Quickstart (3 steps, 60 seconds)
+
+### 1. Create your free account
+
+> **[Sign up at trafficorchestrator.com](https://trafficorchestrator.com/register)** — no credit card required. Free tier includes 5 licenses and 10,000 validations/month.
+
+### 2. Get your API key
+
+> Go to **[Dashboard ? API Keys](https://trafficorchestrator.com/dashboard/keys)** and generate a Sandbox or Live key.
+
+### 3. Install and validate
 
 ```bash
-pip install django-traffic-orchestrator
+pip install traffic-orchestrator-django
 ```
-
-## Configuration
-
-```python
-# settings.py
-INSTALLED_APPS = [
-    'traffic_orchestrator.django',
-]
-
-TRAFFIC_ORCHESTRATOR = {
-    'API_KEY': os.environ.get('TO_API_KEY'),
-    'TIMEOUT': 5,
-    'RETRIES': 3,
-}
-```
-
-## Middleware (Automatic License Checking)
-
-```python
-# settings.py
-MIDDLEWARE = [
-    'traffic_orchestrator.django.middleware.LicenseMiddleware',
-    # ...
-]
-```
-
-## Decorator
-
-```python
-from traffic_orchestrator.django.decorators import require_license
-
-@require_license(plan='pro')
-def premium_view(request):
-    return JsonResponse({'access': 'granted'})
-```
-
-## Template Tag
-
-```django
-{% load traffic_orchestrator %}
-{% if_licensed 'pro' %}
-  <div>Premium content</div>
-{% endif_licensed %}
-```
-
-## API Methods
-
-| Method/Decorator | Auth | Description |
-| --- | --- | --- |
-| `@require_license(plan)` | Yes | View decorator â€” restrict by plan |
-| `{% if_licensed %}` | Yes | Template tag â€” conditional content |
-| `validate_license(token, domain)` | No | Validate a license key |
-| `verify_offline(token)` | No | Ed25519 offline verification |
-| `list_licenses()` | Yes | List all licenses |
-| `create_license(options)` | Yes | Create a new license |
-| `add_domain(id, domain)` | Yes | Add domain to license |
-| `remove_domain(id, domain)` | Yes | Remove domain from license |
-| `get_usage()` | Yes | Get usage statistics |
-| `health_check()` | No | Check API health |
-
-## Multi-Environment
 
 ```python
 # settings.py
 TRAFFIC_ORCHESTRATOR = {
-    'API_KEY': os.environ.get('TO_API_KEY'),
-    # Staging
-    'API_URL': os.environ.get('TO_API_URL', 'https://api.trafficorchestrator.com/api/v1'),
-}
-```
-
-## Offline Verification (Enterprise)
-
-Validate licenses locally without API calls using Ed25519 JWT signatures:
-
-```python
-# settings.py
-TRAFFIC_ORCHESTRATOR = {
-    'PUBLIC_KEY': os.environ.get('TO_PUBLIC_KEY'),
+    'API_KEY': 'sk_live_your_key_here',
 }
 
-# views.py
-from traffic_orchestrator.django import verify_offline
-
-result = verify_offline(license_token)
-if result.valid:
-    print(f"Plan: {result.plan_id}")
+# views.py — license gate middleware auto-validates on every request
 ```
 
-## Requirements
+**That's it.** Your application is now license-protected.
 
-- Python 3.8+
-- Django 4.0+
+---
+
+## Why Traffic Orchestrator?
+
+| Feature | Description |
+|---------|-------------|
+| **Domain-Bound Licensing** | SHA-256 validated keys tied to specific domains — no key sharing |
+| **Edge Validation** | Sub-10ms license checks from 300+ global edge locations |
+| **Offline Mode** | Ed25519 signed JWT tokens for air-gapped and offline environments |
+| **Grace Period** | Configurable fallback keeps your app running during API outages |
+| **Real-Time Analytics** | Track activations, usage patterns, and revenue in your dashboard |
+| **Multi-Language** | Official SDKs for 12 languages — same API, consistent behavior |
+
+## Features
+
+- **License Validation** — Validate license keys against domains with cryptographic proof
+- **License Management** — Create, update, suspend, revoke, and rotate license keys
+- **Offline Verification** — Verify Ed25519-signed JWT tokens without an API call
+- **Webhooks** — Real-time notifications for license events (activation, expiry, revocation)
+- **Analytics & SLA Monitoring** — Track validation performance and uptime metrics
+
+## Documentation
+
+- ?? **[Full API Reference](https://trafficorchestrator.com/docs/api)**
+- ?? **[Quickstart Guides](https://trafficorchestrator.com/docs/quickstart)**
+- ?? **[Integration Examples](https://trafficorchestrator.com/docs/examples)**
+
+## Support
+
+- ?? [Report an Issue](https://github.com/TrafficOrchestrator/django-sdk/issues)
+- ?? [Email Support](mailto:support@trafficorchestrator.com)
+- ?? [Knowledge Base](https://trafficorchestrator.com/docs)
 
 ## License
 
-MIT
+MIT — see [LICENSE](LICENSE) for details.
+
+---
+
+<p align="center">
+  <a href="https://trafficorchestrator.com"><strong>trafficorchestrator.com</strong></a> · 
+  <a href="https://trafficorchestrator.com/register">Get Started Free</a> · 
+  <a href="https://trafficorchestrator.com/docs">Docs</a>
+</p>
