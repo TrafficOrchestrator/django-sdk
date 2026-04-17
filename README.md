@@ -1,9 +1,9 @@
-# Traffic Orchestrator — Django / Python SDK
+# Traffic Orchestrator - Django / Python SDK
 
 [![Django](https://img.shields.io/badge/Django-4.2+-092E20?logo=django)](https://pypi.org/project/traffic-orchestrator-django/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-22c55e.svg)](LICENSE)
 
-**Enterprise-grade software licensing, edge validation, and API management.** Protect and monetize your applications with domain-bound license keys, offline verification, and real-time analytics — powered by 300+ edge locations worldwide.
+**Enterprise-grade software licensing, edge validation, and API management.** Protect and monetize your applications with domain-bound license keys, offline verification, and real-time analytics - powered by 300+ edge locations worldwide.
 
 ---
 
@@ -11,7 +11,7 @@
 
 ### 1. Create your free account
 
-> **[Sign up at trafficorchestrator.com](https://trafficorchestrator.com/register)** — no credit card required. Free tier includes 5 licenses and 10,000 validations/month.
+> **[Sign up at trafficorchestrator.com](https://trafficorchestrator.com/register)** - no credit card required. Free tier includes 5 licenses and 10,000 validations/month.
 
 ### 2. Get your API key
 
@@ -29,7 +29,7 @@ TRAFFIC_ORCHESTRATOR = {
     'API_KEY': 'sk_live_your_key_here',
 }
 
-# views.py — license gate middleware auto-validates on every request
+# views.py - license gate middleware auto-validates on every request
 ```
 
 **That's it.** Your application is now license-protected.
@@ -40,20 +40,20 @@ TRAFFIC_ORCHESTRATOR = {
 
 | Feature | Description |
 |---------|-------------|
-| **Domain-Bound Licensing** | SHA-256 validated keys tied to specific domains — no key sharing |
+| **Domain-Bound Licensing** | SHA-256 validated keys tied to specific domains - no key sharing |
 | **Edge Validation** | Sub-10ms license checks from 300+ global edge locations |
 | **Offline Mode** | Ed25519 signed JWT tokens for air-gapped and offline environments |
 | **Grace Period** | Configurable fallback keeps your app running during API outages |
 | **Real-Time Analytics** | Track activations, usage patterns, and revenue in your dashboard |
-| **Multi-Language** | Official SDKs for 12 languages — same API, consistent behavior |
+| **Multi-Language** | Official SDKs for 12 languages - same API, consistent behavior |
 
 ## Features
 
-- **License Validation** — Validate license keys against domains with cryptographic proof
-- **License Management** — Create, update, suspend, revoke, and rotate license keys
-- **Offline Verification** — Verify Ed25519-signed JWT tokens without an API call
-- **Webhooks** — Real-time notifications for license events (activation, expiry, revocation)
-- **Analytics & SLA Monitoring** — Track validation performance and uptime metrics
+- **License Validation** - Validate license keys against domains with cryptographic proof
+- **License Management** - Create, update, suspend, revoke, and rotate license keys
+- **Offline Verification** - Verify Ed25519-signed JWT tokens without an API call
+- **Webhooks** - Real-time notifications for license events (activation, expiry, revocation)
+- **Analytics & SLA Monitoring** - Track validation performance and uptime metrics
 
 ## Documentation
 
@@ -69,12 +69,12 @@ TRAFFIC_ORCHESTRATOR = {
 
 ## License
 
-MIT — see [LICENSE](LICENSE) for details.
+MIT - see [LICENSE](LICENSE) for details.
 
 ---
 
 <p align="center">
-  <a href="https://trafficorchestrator.com"><strong>trafficorchestrator.com</strong></a> · 
-  <a href="https://trafficorchestrator.com/register">Get Started Free</a> · 
+  <a href="https://trafficorchestrator.com"><strong>trafficorchestrator.com</strong></a> Â· 
+  <a href="https://trafficorchestrator.com/register">Get Started Free</a> Â· 
   <a href="https://trafficorchestrator.com/docs">Docs</a>
 </p>

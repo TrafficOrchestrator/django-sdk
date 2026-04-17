@@ -4,7 +4,7 @@ setup(
     name="traffic-orchestrator-django",
     version="2.0.0",
     description="Official Django integration for Traffic Orchestrator license validation",
-    long_description=open("README.md").read(),
+    long_description=open("README.md", encoding="utf-8").read(),
     long_description_content_type="text/markdown",
     author="Traffic Orchestrator",
     author_email="support@trafficorchestrator.com",
